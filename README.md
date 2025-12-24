@@ -1,52 +1,30 @@
-# TOON Format for Visual Studio Code
+# TOON for VS Code
 
-> **⚠️ Development Status:** This extension is in early development. Bare minimum setup for team collaboration.
+VS Code extension for TOON (Token-Oriented Object Notation) format.
 
-Visual Studio Code extension for TOON format support. TOON is a compact, human-readable serialization format for LLM contexts with 30-60% token reduction vs JSON.
+## Status
 
-## Features
+**v0.0.1** - Initial project setup with bare minimum structure.
 
-Currently in development. Planned features:
+## Roadmap
 
-- Syntax highlighting for `.toon` files
-- Format validation and error detection
-- Code formatting and auto-completion
-- Integration with TOON specification
-
-## Installation
-
-This extension is not yet published to the Visual Studio Marketplace. To install locally:
-
-```bash
-git clone https://github.com/toon-format/vscode.git
-cd toon-vscode
-pnpm install
-pnpm build
-```
+- **v0.0.x** - Initial project setup ✅
+- **v0.1.x** - Basic syntax highlighting (planned)
+- **v0.2.x** - Format validation (planned) 
+- **v0.3.x** - Code formatting and auto-completion (planned)
+- **v1.0.0** - First stable release (planned)
 
 ## Development
 
 ```bash
-# Setup
-git clone https://github.com/toon-format/vscode.git
-cd toon-vscode
 pnpm install
-
-# Build
 pnpm build
-
-# Development mode (watch)
-pnpm dev
-
-# Run linting
-pnpm lint
-
-# Type check
-pnpm test:types
-
-# Package extension
-pnpm package
 ```
+
+## Links
+
+- [TOON Specification](https://github.com/toon-format/spec)
+- [Report Issues](https://github.com/toon-format/vscode/issues)
 
 ## Project Status & Roadmap
 

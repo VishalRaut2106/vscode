@@ -1,11 +1,19 @@
-# TOON VSCode Extension Documentation
+# TOON Extension Docs
 
-This directory will contain comprehensive documentation for the TOON VSCode extension.
+Basic documentation for the TOON VS Code extension.
 
-## Coming Soon
+## Quick Reference
 
-- Installation guide
-- Feature documentation
-- Configuration options
-- Development guide
-- API reference
+- **File extension**: `.toon`
+- **Format**: Indentation-based like YAML
+- **Comments**: Start with `#`
+- **Arrays**: Use `[item1, item2]` or multi-line format
+
+## Example
+
+```toon
+name: Example
+items: [a, b, c]
+nested:
+  key: value
+```

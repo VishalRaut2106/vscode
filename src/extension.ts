@@ -1,12 +1,12 @@
 import * as vscode from 'vscode'
 
 export function activate(context: vscode.ExtensionContext): void {
-  // Register the hello world command
-  const disposable = vscode.commands.registerCommand('toon.helloWorld', () => {
-    vscode.window.showInformationMessage('Hello World from TOON!')
+  // Basic hello command for initial setup
+  const helloCommand = vscode.commands.registerCommand('toon.hello', () => {
+    vscode.window.showInformationMessage('TOON extension activated! Ready for development.')
   })
 
-  context.subscriptions.push(disposable)
+  context.subscriptions.push(helloCommand)
 }
 
 export function deactivate(): void {

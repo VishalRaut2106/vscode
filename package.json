@@ -18,7 +18,10 @@
   "keywords": [
     "toon",
     "format",
-    "serialization"
+    "serialization",
+    "llm",
+    "token-efficient",
+    "json-alternative"
   ],
   "categories": [
     "Programming Languages",
@@ -32,8 +35,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "toon.helloWorld",
-        "title": "TOON: Hello World"
+        "command": "toon.hello",
+        "title": "TOON: Hello"
       }
     ]
   },
