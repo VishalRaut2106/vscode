@@ -1,0 +1,12 @@
+# Basic TOON example
+name: John Doe
+age: 30
+active: true
+
+# Nested object
+address:
+  street: 123 Main St
+  city: New York
+
+# Array
+hobbies: [reading, coding, hiking]

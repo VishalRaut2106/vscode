@@ -3,7 +3,7 @@
   "name": "toon",
   "displayName": "Token-Oriented Object Notation (TOON) Support",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "packageManager": "pnpm@10.23.0",
   "description": "Visual Studio Code extension for TOON format support",
   "license": "MIT",
@@ -33,6 +33,21 @@
     "node": ">=24.0.0"
   },
   "contributes": {
+    "languages": [
+      {
+        "id": "toon",
+        "aliases": ["TOON", "toon"],
+        "extensions": [".toon"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "toon",
+        "scopeName": "source.toon",
+        "path": "./syntaxes/toon.tmLanguage.json"
+      }
+    ],
     "commands": [
       {
         "command": "toon.hello",

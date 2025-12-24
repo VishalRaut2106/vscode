@@ -2,15 +2,36 @@
 
 VS Code extension for TOON (Token-Oriented Object Notation) format.
 
+## Features
+
+- **Syntax highlighting** for `.toon` files
+- **File recognition** with `.toon` extension
+- **Language support** with proper indentation and brackets
+
+## Example
+
+```toon
+# TOON syntax
+name: John Doe
+age: 30
+active: true
+
+address:
+  street: 123 Main St
+  city: New York
+
+hobbies: [reading, coding, hiking]
+```
+
 ## Status
 
-**v0.0.1** - Initial project setup with bare minimum structure.
+**v0.1.0** - Basic syntax highlighting and file recognition ✅
 
 ## Roadmap
 
 - **v0.0.x** - Initial project setup ✅
-- **v0.1.x** - Basic syntax highlighting (planned)
-- **v0.2.x** - Format validation (planned) 
+- **v0.1.x** - Basic syntax highlighting ✅
+- **v0.2.x** - Format validation (next)
 - **v0.3.x** - Code formatting and auto-completion (planned)
 - **v1.0.0** - First stable release (planned)
 
