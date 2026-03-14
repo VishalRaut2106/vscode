@@ -9,12 +9,12 @@
 - TextMate grammar for TOON syntax
 - Basic example file
 
-### Features
-- Comments with `#`
-- Strings (quoted and unquoted)
-- Numbers, booleans, null values
-- Object keys and nested structures
-- Array syntax with brackets
+### Grammar (spec-compliant)
+- Array header syntax: `key[N]: v1,v2` and `key[N]{f1,f2}:` tabular headers
+- Dotted key support: `user.name: value`
+- List item markers: `- value`
+- Strings (quoted), numbers, booleans, null values
+- No comment syntax (TOON has none per spec)
 
 ## [0.0.1] - 2025-12-24
 

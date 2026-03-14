@@ -11,7 +11,6 @@ VS Code extension for TOON (Token-Oriented Object Notation) format.
 ## Example
 
 ```toon
-# TOON syntax
 name: John Doe
 age: 30
 active: true
@@ -20,7 +19,11 @@ address:
   street: 123 Main St
   city: New York
 
-hobbies: [reading, coding, hiking]
+hobbies[3]: reading,coding,hiking
+
+projects[2]{id,name,status}:
+  1,Alpha,active
+  2,Beta,completed
 ```
 
 ## Status

@@ -1,12 +1,15 @@
-# Basic TOON example
 name: John Doe
 age: 30
 active: true
 
-# Nested object
 address:
   street: 123 Main St
   city: New York
 
-# Array
-hobbies: [reading, coding, hiking]
+hobbies[3]: reading,coding,hiking
+
+projects[2]{id,name,status}:
+  1,Alpha,active
+  2,Beta,completed
+
+user.role: admin

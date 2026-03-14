@@ -3,142 +3,80 @@
   "name": "TOON",
   "scopeName": "source.toon",
   "patterns": [
-    {
-      "include": "#comments"
-    },
-    {
-      "include": "#strings"
-    },
-    {
-      "include": "#numbers"
-    },
-    {
-      "include": "#booleans"
-    },
-    {
-      "include": "#null"
-    },
-    {
-      "include": "#keys"
-    },
-    {
-      "include": "#arrays"
-    }
+    { "include": "#tabular-header" },
+    { "include": "#array-header" },
+    { "include": "#list-item" },
+    { "include": "#key-value" }
   ],
   "repository": {
-    "comments": {
+    "tabular-header": {
+      "comment": "§6: key[N]{f1,f2}: or key[N|]{f1|f2}: or key[N\t]{f1\tf2}:",
+      "match": "^(\\s*)([A-Za-z_][A-Za-z0-9_.]*|\"[^\"]*\")(\\[\\d+[|\\t]?\\])(\\{[^}]*\\})(:)(.*)",
+      "captures": {
+        "2": { "name": "entity.name.tag.toon" },
+        "3": { "name": "constant.numeric.toon" },
+        "4": { "name": "entity.other.attribute-name.toon" },
+        "5": { "name": "punctuation.separator.key-value.toon" },
+        "6": { "patterns": [{ "include": "#values" }] }
+      }
+    },
+    "array-header": {
+      "comment": "§6: key[N]: or key[N|]: or key[N\t]: — also root [N]:",
+      "match": "^(\\s*)([A-Za-z_][A-Za-z0-9_.]*|\"[^\"]*\")?(\\[\\d+[|\\t]?\\])(:)(.*)",
+      "captures": {
+        "2": { "name": "entity.name.tag.toon" },
+        "3": { "name": "constant.numeric.toon" },
+        "4": { "name": "punctuation.separator.key-value.toon" },
+        "5": { "patterns": [{ "include": "#values" }] }
+      }
+    },
+    "list-item": {
+      "comment": "§9.4, §10: list item starting with '- '",
+      "match": "^(\\s*)(-)( )(.*)",
+      "captures": {
+        "2": { "name": "punctuation.definition.list.begin.toon" },
+        "4": { "patterns": [{ "include": "#tabular-header" }, { "include": "#array-header" }, { "include": "#key-value" }, { "include": "#values" }] }
+      }
+    },
+    "key-value": {
+      "comment": "§7.3, §8: simple or dotted key followed by colon",
+      "match": "^(\\s*)([A-Za-z_][A-Za-z0-9_.]*|\"[^\"]*\")(:)(.*)",
+      "captures": {
+        "2": { "name": "entity.name.tag.toon" },
+        "3": { "name": "punctuation.separator.key-value.toon" },
+        "4": { "patterns": [{ "include": "#values" }] }
+      }
+    },
+    "values": {
       "patterns": [
-        {
-          "name": "comment.line.number-sign.toon",
-          "match": "#.*$"
-        }
+        { "include": "#string-quoted" },
+        { "include": "#number" },
+        { "include": "#boolean" },
+        { "include": "#null" }
       ]
     },
-    "strings": {
+    "string-quoted": {
+      "name": "string.quoted.double.toon",
+      "begin": "\"",
+      "end": "\"",
       "patterns": [
-        {
-          "name": "string.quoted.double.toon",
-          "begin": "\"",
-          "end": "\"",
-          "patterns": [
-            {
-              "name": "constant.character.escape.toon",
-              "match": "\\\\."
-            }
-          ]
-        },
-        {
-          "name": "string.quoted.single.toon",
-          "begin": "'",
-          "end": "'",
-          "patterns": [
-            {
-              "name": "constant.character.escape.toon",
-              "match": "\\\\."
-            }
-          ]
-        },
-        {
-          "name": "string.unquoted.toon",
-          "match": "(?<=:\\s)[^\\s#\\[\\]()][^#\\n]*"
-        }
+        { "name": "constant.character.escape.toon", "match": "\\\\[\\\\\"nrt]" },
+        { "name": "invalid.illegal.escape.toon", "match": "\\\\." }
       ]
     },
-    "numbers": {
-      "patterns": [
-        {
-          "name": "constant.numeric.toon",
-          "match": "\\b-?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?\\b"
-        }
-      ]
+    "number": {
+      "name": "constant.numeric.toon",
+      "match": "(?<![A-Za-z0-9_.])-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?(?![A-Za-z0-9_.])"
     },
-    "booleans": {
+    "boolean": {
       "patterns": [
-        {
-          "name": "constant.language.boolean.true.toon",
-          "match": "\\btrue\\b"
-        },
-        {
-          "name": "constant.language.boolean.false.toon",
-          "match": "\\bfalse\\b"
-        }
+        { "name": "constant.language.boolean.true.toon", "match": "\\btrue\\b" },
+        { "name": "constant.language.boolean.false.toon", "match": "\\bfalse\\b" }
       ]
     },
     "null": {
-      "patterns": [
-        {
-          "name": "constant.language.null.toon",
-          "match": "\\bnull\\b"
-        }
-      ]
-    },
-    "keys": {
-      "patterns": [
-        {
-          "name": "entity.name.tag.toon",
-          "match": "^\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*:",
-          "captures": {
-            "1": {
-              "name": "entity.name.tag.toon"
-            }
-          }
-        },
-        {
-          "name": "entity.name.tag.quoted.toon",
-          "match": "^\\s*(\"[^\"]*\"|'[^']*')\\s*:",
-          "captures": {
-            "1": {
-              "name": "string.quoted.toon"
-            }
-          }
-        }
-      ]
-    },
-    "arrays": {
-      "patterns": [
-        {
-          "name": "meta.structure.array.toon",
-          "begin": "\\[",
-          "end": "\\]",
-          "patterns": [
-            {
-              "include": "#comments"
-            },
-            {
-              "include": "#strings"
-            },
-            {
-              "include": "#numbers"
-            },
-            {
-              "include": "#booleans"
-            },
-            {
-              "include": "#null"
-            }
-          ]
-        }
-      ]
+      "name": "constant.language.null.toon",
+      "match": "\\bnull\\b"
     }
   }
 }

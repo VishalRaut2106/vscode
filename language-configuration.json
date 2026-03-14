@@ -1,25 +1,20 @@
 {
-  "comments": {
-    "lineComment": "#"
-  },
   "brackets": [
     ["[", "]"],
-    ["(", ")"]
+    ["{", "}"]
   ],
   "autoClosingPairs": [
-    ["[", "]"],
-    ["(", ")"],
-    ["\"", "\""],
-    ["'", "'"]
+    { "open": "[", "close": "]" },
+    { "open": "{", "close": "}" },
+    { "open": "\"", "close": "\"" }
   ],
   "surroundingPairs": [
     ["[", "]"],
-    ["(", ")"],
-    ["\"", "\""],
-    ["'", "'"]
+    ["{", "}"],
+    ["\"", "\""]
   ],
   "indentationRules": {
-    "increaseIndentPattern": "^\\s*.*:\\s*$",
+    "increaseIndentPattern": "^\\s*(?:[A-Za-z_][A-Za-z0-9_.]*|\"[^\"]*\")(?:\\[\\d+[|\\t]?\\](?:\\{[^}]*\\})?)?:\\s*$",
     "decreaseIndentPattern": "^\\s*$"
   }
 }
